@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import "./Navbar.css"
 const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     
@@ -21,7 +21,6 @@ const Navbar = () => {
                 <button>Search</button>
             </div>
             <div>
-                <button>User</button>
                 <button onClick={handleAuthClick}>{isLoggedIn ? "Sign out" : "Sign in"}</button>                
             </div>
         </nav>
