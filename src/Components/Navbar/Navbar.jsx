@@ -11,18 +11,10 @@ const Navbar = () => {
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/recipes">Recipes</a></li>
-                <li><a href="/categories">Categories</a></li>
+                <li><a href="/recipes">About</a></li>
+                <li><a href="/categories">Contacts</a></li>
                 <li><a href="/favorites">Favorites</a></li>
             </ul>
-
-            <div>
-                <input type="text" placeholder="Search recipes"/>
-                <button>Search</button>
-            </div>
-            <div>
-                <button onClick={handleAuthClick}>{isLoggedIn ? "Sign out" : "Sign in"}</button>                
-            </div>
         </nav>
     );
 };
