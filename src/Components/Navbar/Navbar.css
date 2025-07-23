@@ -1,0 +1,61 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: burlywood;
+    border-bottom: 1px saddlebrown;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+}
+ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    background-color: brown;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+ul li a:hover {
+    background-color: aquamarine;
+    color: brown;
+}
+
+div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Add margin to create space between the search div and user div */
+nav > div:last-child {
+    margin-left: 20px;
+}
+
+input[type="text"] {
+    padding: 6px 10px;
+    border: 1px solid white;
+    border-radius: 50px;
+}
+
+button {
+    padding: 6px 12px;
+    background-color: brown;
+    color: aliceblue;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;  
+}
+
+button:hover {
+    background-color: aquamarine;
+    color: brown;
+}
