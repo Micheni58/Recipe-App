@@ -1,17 +1,26 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Footer from './Components/Footer/Footer'
 import './App.css'
 import SignUp from './Components/Authentication/SignUp'
-import Login from './Components/Authentication/Login'
-function App() {
+// import Login from './Components/Authentication/Login'
+// import HomePage from './pages/Home/Home'
 
+function App() {
   return (
-    <>
-      <h1>Recipe App</h1>
-      {/* <SignUp />
-      <Login /> */}
-      {/* <Footer /> */}
-    </>
+    <Router>
+      <div className="App">
+        <h1>Recipe App</h1>
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </Router>
   )
 }
 
-export default App
+export default App;
