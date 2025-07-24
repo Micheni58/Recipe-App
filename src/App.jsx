@@ -1,30 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SearchBar from "./Components/SearchBar";
-import RecipeList from "./Components/RecipeList";
-import Dashboard from "./Components/Dashboard";
-import "./Index.css";
+import RecipeList from "./Components/RecipeList"
+import "./Index.css"
 
 function App() {
-  const [recipes, setRecipes] = useState([]);
-  const [orders, setOrders] = useState([]);
-
-  useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("orders")) || [];
-    setOrders(saved);
-  }, []);
-
-  const addOrder = (order) => {
-    const updated = [...orders, order];
-    setOrders(updated);
-    localStorage.setItem("orders", JSON.stringify(updated));
-  };
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div className="app">
-      <h1>Recipe Finder</h1>
-      <SearchBar setRecipes={setRecipes} />
-      <RecipeList recipes={recipes} onOrder={addOrder} />
-      <Dashboard orders={orders} />
+    <div style={{ textAlign: "center", padding: "2rem" }}>
+      <h1>🍽 Recipe Finder</h1>
+      <SearchBar onSearch={setSearchTerm} />
+      <RecipeList searchTerm={searchTerm} />
     </div>
   );
 }

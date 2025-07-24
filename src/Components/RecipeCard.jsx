@@ -1,43 +1,48 @@
 import React from "react";
 
+const styles = {
+  card: {
+    border: "1px solid #ddd",
+    borderRadius: "8px",
+    padding: "16px",
+    margin: "12px",
+    maxWidth: "350px",
+    backgroundColor: "#fff",
+    boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+    textAlign: "left",
+  },
+  image: {
+    width: "100%",
+    borderRadius: "8px",
+    marginBottom: "12px",
+  },
+};
+
 function RecipeCard({ recipe }) {
-  if (!recipe) return null;
-
-  const {
-    title,
-    image,
-    ingredients = [],
-    procedure = [],
-    content,
-  } = recipe;
-
   return (
-    <div className="recipe-card">
-      <h2>{title}</h2>
+    <div style={styles.card}>
+      <h2>{recipe.title}</h2>
+      <img src={recipe.image} alt={recipe.title} style={styles.image} />
 
-      {image && <img src={image} alt={title} className="recipe-image" />}
-
-      {content && <p className="recipe-content">{content}</p>}
-
-      <h3>Ingredients</h3>
+      <h4>Ingredients:</h4>
       <ul>
-        {Array.isArray(ingredients) && ingredients.length > 0 ? (
-          ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
+        {recipe.extendedIngredients?.length > 0 ? (
+          recipe.extendedIngredients.map((ing, i) => (
+            <li key={i}>{ing.original}</li>
           ))
         ) : (
-          <li>No ingredients listed.</li>
+          <li>No ingredients found.</li>
         )}
       </ul>
 
-      <h3>Procedure</h3>
+      <h4>Instructions:</h4>
       <ol>
-        {Array.isArray(procedure) && procedure.length > 0 ? (
-          procedure.map((step, index) => (
-            <li key={index}>{step}</li>
+        {recipe.analyzedInstructions?.[0]?.steps?.length > 0 ? (
+          recipe.analyzedInstructions[0].steps.map((step) => (
+            <li key={step.number}>{step.step}</li>
           ))
         ) : (
-          <li>No procedure provided.</li>
+          <li>No instructions found.</li>
         )}
       </ol>
     </div>

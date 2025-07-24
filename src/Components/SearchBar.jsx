@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 
-const apiKey = "3be0cd576f6142acb2d2ec7f327e914e";
+function SearchBar({ onSearch }) {
+  const [input, setInput] = useState("");
 
-function SearchBar({ setRecipes }) {
-  const [query, setQuery] = useState("");
-
-  async function fetchRecipes() {
-    const url = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=10&addRecipeInformation=true&apiKey=${apiKey}`;
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      setRecipes(data.results);
-    } catch (err) {
-      console.error("API error:", err);
-    }
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch(input);
+  };
 
   return (
-    <div className="search-bar">
+    <form onSubmit={handleSubmit} style={{ marginBottom: "2rem" }}>
       <input
         type="text"
-        placeholder="Search recipes..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search for recipes..."
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        style={{
+          padding: "8px",
+          width: "250px",
+          fontSize: "16px",
+          marginRight: "8px",
+        }}
       />
-      <button onClick={fetchRecipes}>Search</button>
-    </div>
+      <button type="submit" style={{ padding: "8px 16px" }}>
+        Search
+      </button>
+    </form>
   );
 }
 
