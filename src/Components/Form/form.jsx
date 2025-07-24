@@ -42,6 +42,7 @@ function AddRecipeForm({ onAddRecipe }) {
   }
 
   return (
+    <div className="dark:bg-gray-800 dark:text-white p-4 rounded-lg shadow-md">
     <form id="formdata" onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
       <input name="title" placeholder="Recipe Name" value={formData.title} onChange={handleChange} required /><br />
       <textarea name="description" placeholder="Description" value={formData.description} onChange={handleChange} required /><br/>
@@ -51,6 +52,7 @@ function AddRecipeForm({ onAddRecipe }) {
       <input name="image" type="url" placeholder="Image URL" value={formData.image} onChange={handleChange} /><br/>
       <button id="button"type="submit">Add Recipe</button>
     </form>
+    </div>
   );
 }
 

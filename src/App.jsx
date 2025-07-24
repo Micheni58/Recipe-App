@@ -1,6 +1,7 @@
 
 import './App.css'
 import AddForm from './Components/Form/form'
+import Sidebar from './Components/Sidebar/SIdebar';
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <>
       <h1>Recipe App</h1>
       <AddForm />
+      <Sidebar/>
     </>
   );
 }
