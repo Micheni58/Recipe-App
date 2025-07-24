@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import SearchBar from "./Components/SearchBar";
-import RecipeList from "./Components/RecipeList"
-import "./Index.css"
+import RecipeList from "./Components/RecipeList";
+import "./index.css"; 
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div style={{ textAlign: "center", padding: "2rem" }}>
-      <h1>🍽 Recipe Finder</h1>
-      <SearchBar onSearch={setSearchTerm} />
+    <div className="app">
+      <header className="app-header">
+        <h1 className="app-title">🍽 Recipe Finder</h1>
+        <SearchBar onSearch={setSearchTerm} />
+      </header>
+
       <RecipeList searchTerm={searchTerm} />
     </div>
   );

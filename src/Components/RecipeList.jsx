@@ -42,13 +42,22 @@ function RecipeList({ searchTerm }) {
   }, [searchTerm]);
 
   return (
-    <div className="recipe-list" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+    <div>
       {recipes.length > 0 ? (
-        recipes.map((recipe) => (
-          <RecipeCard key={recipe.id} recipe={recipe} />
-        ))
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "20px",
+          }}
+        >
+          {recipes.map((recipe) => (
+            <RecipeCard key={recipe.id} recipe={recipe} />
+          ))}
+        </div>
       ) : (
-        <p>No recipes found.</p>
+        <p style={{ textAlign: "center" }}>No recipes found.</p>
       )}
     </div>
   );
