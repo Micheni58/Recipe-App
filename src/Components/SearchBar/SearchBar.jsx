@@ -1,32 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
+import { useRecipes } from "../../context/RecipeContext";
+import "./SearchBar.css";
 
-function SearchBar({ onSearch }) {
-  const [input, setInput] = useState("");
+const SearchBar = () => {
+  const { searchQuery, setSearchQuery } = useRecipes();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSearch(input);
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: "2rem" }}>
+    <div className="search-bar">
       <input
         type="text"
-        placeholder="Search for recipes..."
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        style={{
-          padding: "8px",
-          width: "250px",
-          fontSize: "16px",
-          marginRight: "8px",
-        }}
+        placeholder="Search recipes by title..."
+        value={searchQuery}
+        onChange={handleSearch}
+        className="search-input"
       />
-      <button type="submit" style={{ padding: "8px 16px" }}>
-        Search
-      </button>
-    </form>
+    </div>
   );
-}
+};
 
 export default SearchBar;

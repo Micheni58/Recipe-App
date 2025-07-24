@@ -63,7 +63,7 @@ const RecipeForm = () => {
     <div className="recipe-form-container">
       {showSuccess && (
         <div className="success-message">
-          <p> Recipe added successfully! Check it out in the recipes section above.</p>
+          <p>✅ Recipe added successfully! Check it out in the recipes section above.</p>
         </div>
       )}
 

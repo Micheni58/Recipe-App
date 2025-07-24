@@ -1,0 +1,163 @@
+{
+  "recipes": [
+    {
+      "id": "user-1753383757797",
+      "title": "Bhajia",
+      "description": "It is a kenyan meal",
+      "cuisine": "African",
+      "prepTime": 12,
+      "ingredients": [
+        "potatoes as its main ingredient, along with a spiced gram flour batter. Other key ingredients include chickpea flour (also known as gram flour), coriander (dhania), ginger, garlic, and various spices like turmeric, paprika, cumin, and chili powder"
+      ],
+      "instructions": [
+        "Once the oil is hot enough, drop spoonfuls of the mixture in the oil and deep-fry till they turn crisp and golden brown in colour from all the sides. Drain on an absorbent paper. Repeat step 2 to make more bhajias. Serve the crispy potato bhajiyas immediately with green chutney and tomato ketchup."
+      ],
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKTrxUMxi9BishR82eCQRM488CYbom-D5ymw&s",
+      "isUserRecipe": true
+    },
+    {
+      "id": "user-1753384670404",
+      "title": "Chips masala",
+      "description": "Golden, crispy fries are seasoned with an aromatic blend of spices including cumin, coriander, and turmeric, then topped with a spicy tomato and sauce for a snack with a kick.",
+      "cuisine": "African",
+      "prepTime": 15,
+      "ingredients": [
+        "1 kg potatoes, peeled and cut into strips/fries (rinse the potato strips a couple of times to get rid of excess starch)",
+        "2 tbsp margarine/butter.",
+        "1/2 tsp Tropical Heat paprika.",
+        "1 tsp salt(or to taste)",
+        "2-3 tbsp ketchup/tomato sauce.",
+        "1 tbsp tomato puree/paste.",
+        "1 tsp Tropical Heat chilli powder (or to taste)"
+      ],
+      "instructions": [
+        "Heat the oil in a large pan over medium-high heat, then add the red onion and cook for 5 minutes, until browned.",
+        "Add the tomato, serrano, and garlic. Stir well, cover, and cook for 5 minutes, until the tomatoes have softened.",
+        "Add the garam masala, turmeric, and cumin. Stir, reduce the heat to medium, and cook for another 10 minutes, or until the spices are fragrant and the tomatoes have broken down into a sauce.",
+        "Stir in the lemon juice and cilantro, then add the fries and salt. Toss well to coat. Serve immediately.",
+        "Enjoy!"
+      ],
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjBIlDA6PPGvdBChXTnJYXDkSnCstZniu4HQ&s",
+      "isUserRecipe": true
+    },
+    {
+      "id": "user-1753384672324",
+      "title": "Chips masala",
+      "description": "Golden, crispy fries are seasoned with an aromatic blend of spices including cumin, coriander, and turmeric, then topped with a spicy tomato and sauce for a snack with a kick.",
+      "cuisine": "African",
+      "prepTime": 15,
+      "ingredients": [
+        "1 kg potatoes, peeled and cut into strips/fries (rinse the potato strips a couple of times to get rid of excess starch)",
+        "2 tbsp margarine/butter.",
+        "1/2 tsp Tropical Heat paprika.",
+        "1 tsp salt(or to taste)",
+        "2-3 tbsp ketchup/tomato sauce.",
+        "1 tbsp tomato puree/paste.",
+        "1 tsp Tropical Heat chilli powder (or to taste)"
+      ],
+      "instructions": [
+        "Heat the oil in a large pan over medium-high heat, then add the red onion and cook for 5 minutes, until browned.",
+        "Add the tomato, serrano, and garlic. Stir well, cover, and cook for 5 minutes, until the tomatoes have softened.",
+        "Add the garam masala, turmeric, and cumin. Stir, reduce the heat to medium, and cook for another 10 minutes, or until the spices are fragrant and the tomatoes have broken down into a sauce.",
+        "Stir in the lemon juice and cilantro, then add the fries and salt. Toss well to coat. Serve immediately.",
+        "Enjoy!"
+      ],
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjBIlDA6PPGvdBChXTnJYXDkSnCstZniu4HQ&s",
+      "isUserRecipe": true
+    },
+    {
+      "id": "user-1753384672771",
+      "title": "Chips masala",
+      "description": "Golden, crispy fries are seasoned with an aromatic blend of spices including cumin, coriander, and turmeric, then topped with a spicy tomato and sauce for a snack with a kick.",
+      "cuisine": "African",
+      "prepTime": 15,
+      "ingredients": [
+        "1 kg potatoes, peeled and cut into strips/fries (rinse the potato strips a couple of times to get rid of excess starch)",
+        "2 tbsp margarine/butter.",
+        "1/2 tsp Tropical Heat paprika.",
+        "1 tsp salt(or to taste)",
+        "2-3 tbsp ketchup/tomato sauce.",
+        "1 tbsp tomato puree/paste.",
+        "1 tsp Tropical Heat chilli powder (or to taste)"
+      ],
+      "instructions": [
+        "Heat the oil in a large pan over medium-high heat, then add the red onion and cook for 5 minutes, until browned.",
+        "Add the tomato, serrano, and garlic. Stir well, cover, and cook for 5 minutes, until the tomatoes have softened.",
+        "Add the garam masala, turmeric, and cumin. Stir, reduce the heat to medium, and cook for another 10 minutes, or until the spices are fragrant and the tomatoes have broken down into a sauce.",
+        "Stir in the lemon juice and cilantro, then add the fries and salt. Toss well to coat. Serve immediately.",
+        "Enjoy!"
+      ],
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjBIlDA6PPGvdBChXTnJYXDkSnCstZniu4HQ&s",
+      "isUserRecipe": true
+    },
+    {
+      "id": "user-1753384672907",
+      "title": "Chips masala",
+      "description": "Golden, crispy fries are seasoned with an aromatic blend of spices including cumin, coriander, and turmeric, then topped with a spicy tomato and sauce for a snack with a kick.",
+      "cuisine": "African",
+      "prepTime": 15,
+      "ingredients": [
+        "1 kg potatoes, peeled and cut into strips/fries (rinse the potato strips a couple of times to get rid of excess starch)",
+        "2 tbsp margarine/butter.",
+        "1/2 tsp Tropical Heat paprika.",
+        "1 tsp salt(or to taste)",
+        "2-3 tbsp ketchup/tomato sauce.",
+        "1 tbsp tomato puree/paste.",
+        "1 tsp Tropical Heat chilli powder (or to taste)"
+      ],
+      "instructions": [
+        "Heat the oil in a large pan over medium-high heat, then add the red onion and cook for 5 minutes, until browned.",
+        "Add the tomato, serrano, and garlic. Stir well, cover, and cook for 5 minutes, until the tomatoes have softened.",
+        "Add the garam masala, turmeric, and cumin. Stir, reduce the heat to medium, and cook for another 10 minutes, or until the spices are fragrant and the tomatoes have broken down into a sauce.",
+        "Stir in the lemon juice and cilantro, then add the fries and salt. Toss well to coat. Serve immediately.",
+        "Enjoy!"
+      ],
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjBIlDA6PPGvdBChXTnJYXDkSnCstZniu4HQ&s",
+      "isUserRecipe": true
+    },
+    {
+      "id": "user-1753384673051",
+      "title": "Chips masala",
+      "description": "Golden, crispy fries are seasoned with an aromatic blend of spices including cumin, coriander, and turmeric, then topped with a spicy tomato and sauce for a snack with a kick.",
+      "cuisine": "African",
+      "prepTime": 15,
+      "ingredients": [
+        "1 kg potatoes, peeled and cut into strips/fries (rinse the potato strips a couple of times to get rid of excess starch)",
+        "2 tbsp margarine/butter.",
+        "1/2 tsp Tropical Heat paprika.",
+        "1 tsp salt(or to taste)",
+        "2-3 tbsp ketchup/tomato sauce.",
+        "1 tbsp tomato puree/paste.",
+        "1 tsp Tropical Heat chilli powder (or to taste)"
+      ],
+      "instructions": [
+        "Heat the oil in a large pan over medium-high heat, then add the red onion and cook for 5 minutes, until browned.",
+        "Add the tomato, serrano, and garlic. Stir well, cover, and cook for 5 minutes, until the tomatoes have softened.",
+        "Add the garam masala, turmeric, and cumin. Stir, reduce the heat to medium, and cook for another 10 minutes, or until the spices are fragrant and the tomatoes have broken down into a sauce.",
+        "Stir in the lemon juice and cilantro, then add the fries and salt. Toss well to coat. Serve immediately.",
+        "Enjoy!"
+      ],
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjBIlDA6PPGvdBChXTnJYXDkSnCstZniu4HQ&s",
+      "isUserRecipe": true
+    },
+    {
+      "id": "user-1753386371220",
+      "title": "Mandazi",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBtVJdSyeOs7QhylSjs7V_yirZt1GMSVB7ZAXfW5ceJbS5zXDFBUliBEOpxzyeVETGjoobePD5oGaxv7bCh71ZRiHhIEIBgLM_qUODv2FcwA",
+      "cuisine": "African",
+      "description": "Mandazi is a popular East African fried bread, similar to a doughnut but typically less sweet and often not glazed. It's made from a sweetened dough, often flavored with cardamom, and fried in oil until golden brown",
+      "prepTime": 9,
+      "ingredients": [
+        "flour, sugar, baking powder or yeast, and milk or water."
+      ],
+      "instructions": [
+        "In a large bowl, whisk together the flour, sugar, baking powder, cardamom, and salt. ...",
+        "Turn the dough out onto a floured surface and knead until smooth. ...",
+        "Heat the oil in a large pot until it reaches 350˚F (180˚C).",
+        "Working in batches, fry the mandazi for 2-3 minutes per side, until golden brown. ...",
+        "Enjoy!"
+      ],
+      "isUserRecipe": true
+    }
+  ]
+}
