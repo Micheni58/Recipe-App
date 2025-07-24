@@ -1,8 +1,9 @@
+// src/data/sampleRecipes.js
 export const sampleRecipes = [
   {
     id: 1,
     title: "Classic Spaghetti Carbonara",
-    imageUrl: "/placeholder.svg?height=300&width=400",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoU1XM0VkPHtxS7eUK_CGWBz5y-en-hts0ew&s",
     cuisine: "Italian",
     description: "Creamy pasta dish with eggs, cheese, and pancetta",
     prepTime: 20,
@@ -27,7 +28,7 @@ export const sampleRecipes = [
   {
     id: 2,
     title: "Chicken Tikka Masala",
-    imageUrl: "/placeholder.svg?height=300&width=400",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKszo9OR9Mh6mvWYaFe0vC-Kt-_pvfm_RGpQ&s",
     cuisine: "Indian",
     description: "Tender chicken in a rich, creamy tomato-based sauce",
     prepTime: 45,
@@ -56,7 +57,7 @@ export const sampleRecipes = [
   {
     id: 3,
     title: "Beef Tacos",
-    imageUrl: "/placeholder.svg?height=300&width=400",
+    imageUrl: "https://www.onceuponachef.com/images/2023/08/Beef-Tacos.jpg",
     cuisine: "Mexican",
     description: "Seasoned ground beef tacos with fresh toppings",
     prepTime: 25,
@@ -84,7 +85,7 @@ export const sampleRecipes = [
   {
     id: 4,
     title: "Chocolate Chip Cookies",
-    imageUrl: "/placeholder.svg?height=300&width=400",
+    imageUrl: "https://img.taste.com.au/puSNvmqQ/taste/2010/01/chocolate-chip-cookies-cropped-199866-1.jpg",
     cuisine: "American",
     description: "Classic homemade chocolate chip cookies",
     prepTime: 30,
@@ -113,7 +114,7 @@ export const sampleRecipes = [
   {
     id: 5,
     title: "Greek Salad",
-    imageUrl: "/placeholder.svg?height=300&width=400",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2wc55Byr1sjrQABrH2TAp8Oh1riph2GJEww&s",
     cuisine: "Greek",
     description: "Fresh Mediterranean salad with feta and olives",
     prepTime: 15,
@@ -141,7 +142,7 @@ export const sampleRecipes = [
   {
     id: 6,
     title: "Pad Thai",
-    imageUrl: "/placeholder.svg?height=300&width=400",
+    imageUrl: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2f/9d/90/a3/for-reservations-please.jpg?w=900&h=500&s=1",
     cuisine: "Thai",
     description: "Classic Thai stir-fried noodles with shrimp and vegetables",
     prepTime: 35,
@@ -168,4 +169,4 @@ export const sampleRecipes = [
       "Serve with crushed peanuts and lime wedges",
     ],
   },
-]
+];
