@@ -19,6 +19,7 @@ function App() {
         <Navbar />
         <h1>Recipe App</h1>
 
+        {/* <Buttonicon /> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
