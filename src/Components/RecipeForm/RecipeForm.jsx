@@ -1,12 +1,12 @@
-import React, { useState } from "react"
-import { useRecipes } from "../../context/RecipeContext"
-import { useToasts } from "../../context/ToastContext"
-import "./RecipeForm.css"
+import React, { useState } from "react";
+import { useRecipes } from "../../context/RecipeContext";
+import { useToasts } from "../../context/ToastContext";
+import "./RecipeForm.css";
 
 const RecipeForm = () => {
-  const { addRecipe } = useRecipes()
-  const { addToast } = useToasts()
-  const [showSuccess, setShowSuccess] = useState(false)
+  const { addRecipe } = useRecipes();
+  const { addToast } = useToasts();
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -16,17 +16,17 @@ const RecipeForm = () => {
     prepTime: "",
     ingredients: "",
     instructions: "",
-  })
+  });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const newRecipe = {
       ...formData,
@@ -34,10 +34,10 @@ const RecipeForm = () => {
       ingredients: formData.ingredients.split("\n").filter((item) => item.trim()),
       instructions: formData.instructions.split("\n").filter((item) => item.trim()),
       id: Date.now(),
-    }
+    };
 
     try {
-      await addRecipe(newRecipe)
+      await addRecipe(newRecipe);
       setFormData({
         title: "",
         imageUrl: "",
@@ -46,24 +46,24 @@ const RecipeForm = () => {
         prepTime: "",
         ingredients: "",
         instructions: "",
-      })
-      setShowSuccess(true)
-      addToast("Recipe added successfully!", "success")
-      setTimeout(() => setShowSuccess(false), 3000)
-      const recipesSection = document.getElementById("recipes")
+      });
+      setShowSuccess(true);
+      addToast("Recipe added successfully!", "success");
+      setTimeout(() => setShowSuccess(false), 3000);
+      const recipesSection = document.getElementById("recipes");
       if (recipesSection) {
-        recipesSection.scrollIntoView({ behavior: "smooth" })
+        recipesSection.scrollIntoView({ behavior: "smooth" });
       }
     } catch (err) {
-      addToast("Failed to add recipe", "error")
+      addToast("Failed to add recipe", "error");
     }
-  }
+  };
 
   return (
     <div className="recipe-form-container">
       {showSuccess && (
         <div className="success-message">
-          <p>✅ Recipe added successfully! Check it out in the recipes section above.</p>
+          <p>✅ Recipe added successfully! Check it out in the Dashboard page.</p>
         </div>
       )}
 
@@ -168,7 +168,7 @@ const RecipeForm = () => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default RecipeForm
+export default RecipeForm;

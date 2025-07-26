@@ -1,41 +1,34 @@
-.home-page {
-  display: flex;
-  min-height: 100vh;
-}
-
 .home-content {
   flex: 1;
   padding: 2rem 0;
 }
 
-.home-content.with-sidebar {
-  margin-left: 250px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.hero-section {
-  text-align: center;
-  padding: 4rem 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 12px;
-  margin-bottom: 2rem;
-}
-
-.hero-title {
+.home-title {
   font-size: 3rem;
   margin-bottom: 1rem;
+  text-align: center;
+  color: #2c3e50;
 }
 
-.hero-description {
+.home-subtitle {
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto 2rem;
+  text-align: center;
+  color: #555;
 }
 
 .hero-actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .hero-btn {
@@ -47,6 +40,7 @@
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .hero-btn:hover {
@@ -56,13 +50,13 @@
 
 .hero-btn.secondary {
   background: transparent;
-  border: 2px solid white;
-  color: white;
+  border: 2px solid #2c3e50;
+  color: #2c3e50;
 }
 
 .hero-btn.secondary:hover {
-  background: white;
-  color: #2c3e50;
+  background: #2c3e50;
+  color: white;
 }
 
 .section-title {
@@ -72,20 +66,19 @@
   text-align: center;
 }
 
-.featured-recipes {
-  padding: 2rem 0;
+.home-recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  justify-items: center;
 }
 
 @media (max-width: 768px) {
-  .home-content.with-sidebar {
-    margin-left: 200px;
-  }
-
-  .hero-title {
+  .home-title {
     font-size: 2.5rem;
   }
 
-  .hero-description {
+  .home-subtitle {
     font-size: 1rem;
   }
 
@@ -93,19 +86,22 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .home-recipe-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 }
 
 @media (max-width: 480px) {
   .home-content {
-    margin-left: 0;
     padding: 1rem;
   }
 
-  .hero-section {
-    padding: 2rem 1rem;
+  .home-title {
+    font-size: 2rem;
   }
 
-  .hero-title {
-    font-size: 2rem;
+  .home-recipe-grid {
+    grid-template-columns: 1fr;
   }
 }

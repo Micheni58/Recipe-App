@@ -1,28 +1,13 @@
-import axios from "axios";
-
-const SPOONACULAR_API_KEY = "YOUR_NEW_API_KEY_HERE"; // Replace after quota reset
+const SPOONACULAR_API_KEY = "63738a5eb856465ab088011a9f9f71f4";
 const BASE_URL = "https://api.spoonacular.com";
-const DB_URL = "http://localhost:3001"; // JSON server URL
+const LOCAL_API_URL = "http://localhost:4000";
 
 const handleApiError = (error) => {
-  console.error("API Error Details:", {
-    message: error.message,
-    response: error.response ? {
-      status: error.response.status,
-      data: error.response.data,
-    } : null,
-    request: error.request,
-  });
-  if (error.response?.status === 401) {
+  console.error("API Error:", error);
+  if (error.message.includes("401")) {
     throw new Error("Invalid API key. Please check your Spoonacular API key.");
   }
-  if (error.response?.status === 402) {
-    throw new Error("API quota exceeded. Please wait until tomorrow or use a new API key.");
-  }
-  if (error.response?.status === 404) {
-    throw new Error("API endpoint not found. Check the URL or contact Spoonacular support.");
-  }
-  throw new Error("Failed to fetch data: " + error.message);
+  throw new Error("Failed to fetch data from API");
 };
 
 export const getRecipes = async (query = "", cuisine = "", number = 12) => {
@@ -31,27 +16,23 @@ export const getRecipes = async (query = "", cuisine = "", number = 12) => {
       apiKey: SPOONACULAR_API_KEY,
       number: number.toString(),
       addRecipeInformation: "true",
-      fillIngredients: "true",
+      fillIngredients: "false",
     });
 
     if (query) params.append("query", query);
     if (cuisine && cuisine !== "all") params.append("cuisine", cuisine);
 
-    console.log("API Request URL:", `${BASE_URL}/recipes/complexSearch?${params}`);
+    const response = await fetch(`${BASE_URL}/recipes/complexSearch?${params}`);
 
-    const response = await axios.get(`${BASE_URL}/recipes/complexSearch?${params}`);
-
-    if (response.status !== 200) {
+    if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const data = response.data;
+    const data = await response.json();
 
     if (data.status === "failure") {
       throw new Error(data.message || "API request failed");
     }
-
-    console.log("API Response Data:", data);
 
     return (
       data.results?.map((recipe) => ({
@@ -65,26 +46,44 @@ export const getRecipes = async (query = "", cuisine = "", number = 12) => {
         prepTime: recipe.readyInMinutes || 30,
         ingredients: recipe.extendedIngredients?.map((ing) => ing.original) || [],
         instructions: recipe.analyzedInstructions?.[0]?.steps?.map((step) => step.step) || [],
-        isUserRecipe: false
+        isUserRecipe: false,
       })) || []
     );
   } catch (error) {
-    handleApiError(error);
+    console.error("Error fetching recipes:", error);
     return [];
   }
 };
 
 export const getRecipeById = async (id) => {
   try {
-    const response = await axios.get(
+    // Try fetching from db.json first
+    const localResponse = await fetch(`${LOCAL_API_URL}/recipes/${id}`);
+    if (localResponse.ok) {
+      const recipe = await localResponse.json();
+      return {
+        id: recipe.id,
+        title: recipe.title || "Untitled Recipe",
+        imageUrl: recipe.imageUrl || "/placeholder.svg?height=300&width=400",
+        cuisine: recipe.cuisine || "International",
+        description: recipe.description || "A delicious recipe",
+        prepTime: recipe.prepTime || 30,
+        ingredients: recipe.ingredients || [],
+        instructions: recipe.instructions || [],
+        isUserRecipe: true,
+      };
+    }
+
+    // If not found in db.json, try Spoonacular
+    const response = await fetch(
       `${BASE_URL}/recipes/${id}/information?apiKey=${SPOONACULAR_API_KEY}&includeNutrition=false`
     );
 
-    if (response.status !== 200) {
+    if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const recipe = response.data;
+    const recipe = await response.json();
 
     if (recipe.status === "failure") {
       throw new Error(recipe.message || "Recipe not found");
@@ -92,33 +91,21 @@ export const getRecipeById = async (id) => {
 
     return {
       id: recipe.id,
-      title: recipe.title,
-      imageUrl: recipe.image,
+      title: recipe.title || "Untitled Recipe",
+      imageUrl: recipe.image || "/placeholder.svg?height=300&width=400",
       cuisine: recipe.cuisines?.[0] || "International",
       description: recipe.summary ? recipe.summary.replace(/<[^>]*>/g, "") : "Delicious recipe",
       prepTime: recipe.readyInMinutes || 30,
       ingredients: recipe.extendedIngredients?.map((ing) => ing.original) || [],
       instructions: recipe.analyzedInstructions?.[0]?.steps?.map((step) => step.step) || [],
-      isUserRecipe: false
+      isUserRecipe: false,
     };
   } catch (error) {
     handleApiError(error);
   }
 };
 
-export const getRecipeDetails = async (id) => {
-  try {
-    if (id.toString().startsWith("user-")) {
-      const response = await axios.get(`${DB_URL}/recipes/${id}`);
-      return response.data;
-    }
-    return await getRecipeById(id);
-  } catch (error) {
-    handleApiError(error);
-  }
-};
-
-export const getCuisines = async () => {
+export const getCuisines = () => {
   return [
     "African",
     "American",
@@ -151,69 +138,60 @@ export const getCuisines = async () => {
 
 export const saveRecipe = async (recipe) => {
   try {
-    const newRecipe = {
-      ...recipe,
-      isUserRecipe: true,
-      imageUrl: recipe.imageUrl || "/placeholder.svg?height=300&width=400"
-    };
-    console.log("Saving recipe to db.json:", newRecipe);
-    const response = await axios.post(`${DB_URL}/recipes`, newRecipe);
-    console.log("Saved recipe response:", response.data);
-    return response.data;
-  } catch (error) {
-    handleApiError(error);
-    throw error;
-  }
-};
-
-export const updateRecipe = async (id, recipe) => {
-  try {
-    const response = await axios.put(`${DB_URL}/recipes/${id}`, { 
-      ...recipe, 
-      id, 
-      isUserRecipe: true 
+    const response = await fetch(`${LOCAL_API_URL}/recipes`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...recipe,
+        prepTime: Number.parseInt(recipe.prepTime),
+        ingredients: Array.isArray(recipe.ingredients)
+          ? recipe.ingredients
+          : recipe.ingredients.split("\n").filter((item) => item.trim()),
+        instructions: Array.isArray(recipe.instructions)
+          ? recipe.instructions
+          : recipe.instructions.split("\n").filter((item) => item.trim()),
+        isUserRecipe: true,
+      }),
     });
-    return response.data;
+    if (!response.ok) {
+      throw new Error("Failed to save recipe");
+    }
+    return await response.json();
   } catch (error) {
     handleApiError(error);
-    throw error;
-  }
-};
-
-export const deleteRecipe = async (id) => {
-  try {
-    await axios.delete(`${DB_URL}/recipes/${id}`);
-    return id;
-  } catch (error) {
-    handleApiError(error);
-    throw error;
   }
 };
 
 export const getUserRecipes = async () => {
   try {
-    console.log("Fetching user recipes from db.json");
-    const response = await axios.get(`${DB_URL}/recipes`);
-    const recipes = response.data.filter((recipe) => recipe.isUserRecipe) || [];
-    console.log("Fetched user recipes:", recipes);
-    return recipes;
+    const response = await fetch(`${LOCAL_API_URL}/recipes`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch user recipes");
+    }
+    const recipes = await response.json();
+    return recipes.map((recipe) => ({
+      ...recipe,
+      isUserRecipe: true,
+    }));
   } catch (error) {
-    handleApiError(error);
+    console.error("Error fetching user recipes:", error);
     return [];
   }
 };
 
 export const searchByIngredients = async (ingredients) => {
   try {
-    const response = await axios.get(
+    const response = await fetch(
       `${BASE_URL}/recipes/findByIngredients?apiKey=${SPOONACULAR_API_KEY}&ingredients=${ingredients}&number=12`
     );
 
-    if (response.status !== 200) {
+    if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const data = response.data;
+    const data = await response.json();
 
     return data.map((recipe) => ({
       id: recipe.id,
@@ -224,7 +202,7 @@ export const searchByIngredients = async (ingredients) => {
       prepTime: 30,
       ingredients: [],
       instructions: [],
-      isUserRecipe: false
+      isUserRecipe: false,
     }));
   } catch (error) {
     handleApiError(error);

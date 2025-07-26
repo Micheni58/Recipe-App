@@ -1,25 +1,21 @@
-import React from "react";
-import { useRecipes } from "../../context/RecipeContext";
-import "./SearchBar.css";
+import React from "react"
+import { useRecipes } from "../../context/RecipeContext"
+import "./SearchBar.css"
 
 const SearchBar = () => {
-  const { searchQuery, setSearchQuery } = useRecipes();
-
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
-  };
+  const { searchTerm, setSearchTerm } = useRecipes()
 
   return (
     <div className="search-bar">
       <input
         type="text"
         placeholder="Search recipes by title..."
-        value={searchQuery}
-        onChange={handleSearch}
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
         className="search-input"
       />
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar
