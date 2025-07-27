@@ -34,10 +34,10 @@ cd recipe-app
 npm install
 
 # 3. Configure Spoonacular API Key
-# - Get your API key from https://spoonacular.com/food-api
-# - Open the file: src/services/api.js
-# - Replace the placeholder value with your actual key:
-#   const SPOONACULAR_API_KEY = "your_new_api_key_here";
+- Get your API key from https://spoonacular.com/food-api
+- Open the file: src/services/api.js
+- Replace the placeholder value with your actual key:
+const SPOONACULAR_API_KEY = "your_new_api_key_here";
 
 # 4. Set Up the JSON Server
 
@@ -62,17 +62,17 @@ echo '{
 npm install --save-dev json-server
 
 # Add the following script to your package.json under "scripts":
-# "start:server": "json-server --watch db.json --port 4000"
+ "start:server": "json-server --watch db.json --port 4000"
 
 # You can use this command to open package.json and edit it:
-# (Or open it manually in your editor)
+(Or open it manually in your editor)
 
 # 5. Run the JSON Server (to store custom user recipes)
 npm run start:server
 
 # Visit http://localhost:4000/recipes to verify it’s working.
 
-# If you get an EADDRINUSE error, run:
+ If you get an EADDRINUSE error, run:
 kill -9 $(lsof -i :4000 -t)
 
 # Then rerun the server:
@@ -81,4 +81,4 @@ npm run start:server
 # 6. Run the React App (in a new terminal window)
 npm start
 
-# Visit http://localhost:3000 in your browser.
+Visit http://localhost:3000 in your browser.
